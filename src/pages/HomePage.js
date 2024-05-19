@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { BestSellingCards } from "../components/BestSellingCards";
 import { PhoneCard } from "../components/BrowseByCate";
 import { FlashSalesTime } from "../components/FlashSalesTime";
 import { OurProductsCards } from "../components/OurProductsCards";
 import { ProjectsCards } from "../components/ProjectsCards";
+
 import {
   ArrowSVG,
   MusicExperienceTimerSVG,
@@ -12,6 +14,7 @@ import {
 
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <div className="home-pgae mb-5 w-100">
       <div className="categories d-flex w-100">
@@ -71,7 +74,7 @@ const HomePage = () => {
       </div>
       <div className="flash-sales-products">
         <ProjectsCards/>
-        <button className="view-products-btn">View All Products</button>
+        <button className="view-products-btn" onClick={()=> navigate("/all-products")}>View All Products</button>
       </div>
 
       <div className="browse-category">
@@ -117,7 +120,7 @@ const HomePage = () => {
         </div>
 
         <OurProductsCards />
-        <button className="view-all-products d-block">View All Products</button>
+        <button className="view-all-products d-block" onClick={()=> navigate("/all-products")}>View All Products</button>
       </div>
     </div>
   );

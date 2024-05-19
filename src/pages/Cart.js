@@ -1,12 +1,12 @@
 // Cart.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { scrollToSection } from "../components/ScrollToSection";
 
 
 const Cart = () => {
-  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const { cartItems,setCartItems, removeFromCart, updateQuantity } = useCart();
   const navigate = useNavigate();
 
   const handleQuantityChange = (productId, quantity) => {
@@ -15,12 +15,16 @@ const Cart = () => {
 
   const handleReturnToShop = () => {
     navigate("/");
-    setTimeout(() => scrollToSection("products-section"), 100); // Delay to ensure navigation completes
+    setTimeout(() => scrollToSection("products-section"), 100); 
   };
 
   const totalPrice = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
+
+  // useEffect (()=> {
+  //   const savedCartItems = JSON.parse()
+  // })
 
   return (
     <div className="cart-page align-center">

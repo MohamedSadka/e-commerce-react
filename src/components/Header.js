@@ -81,28 +81,60 @@ const Header = () => {
               show={showDropdown}
               onClose={handleDropdownClose}
             >
-              <Dropdown.Menu>
-                <Dropdown.Item href="#">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Menu className="dropdown-menu">
+                <Dropdown.Item>
+                  <div className="d-flex gap-3">
+                    <img width="30px" src="/images/user.webp" alt="user-pic" />
+                    <Link to="/forgot-password">Manage My Account</Link>
+                  </div>
+                </Dropdown.Item>
+                <Dropdown.Item >
+                  <div className="d-flex gap-3">
+                    <img width="20px" height="20px" src="/images/order.png" alt="user-pic" />
+                    <Link to="/forgot-password">My Order</Link>
+                  </div>
+                </Dropdown.Item>
+                <Dropdown.Item >
+                  {" "}
+                  <div className="d-flex gap-3">
+                    <img width="30px" src="/images/cancelation.jpeg" alt="user-pic" />
+                    <Link to="/forgot-password">My Cancellations</Link>
+                  </div>
+                </Dropdown.Item>
+                <Dropdown.Item >
+                  {" "}
+                  <div className="d-flex gap-3">
+                    <img width="30px" src="/images/star-img.jpeg" alt="review-pic" />
+                    <Link to="/reviews">My Reviews</Link>
+                  </div>
+                </Dropdown.Item>
+                <Dropdown.Item >
+                  {" "}
+                  <div className="d-flex gap-3">
+                    <img width="30px" src="/images/logout-img.jpg" alt="logout-pic" />
+                    <Link to="/checkout">Log Out</Link>
+                  </div>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
         )}
       </div>
-      {window.innerWidth <= 900 && <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          {/* <Navbar.Brand href="#home">Pages</Navbar.Brand> */}
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Link to="/">home</Link>
-              <Link to="/about">about</Link>
-              <Link to="/signup">signup</Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>}
+      {window.innerWidth <= 900 && (
+        <Navbar expand="lg" className="bg-body-tertiary">
+          <Container>
+            {/* <Navbar.Brand href="#home">Pages</Navbar.Brand> */}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Link to="/">home</Link>
+                <Link to="/about">about</Link>
+                <Link to="/signup">signup</Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      )}
     </div>
   );
 };
