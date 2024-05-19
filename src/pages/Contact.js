@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div className="page" style={{ width: "1100px" }}>
+    <div className="page">
       <div className="page-links">
         <span className="page-link">Home</span> /{" "}
         <span className="pgae-link">Contact</span>
@@ -50,7 +50,7 @@ const Contact = () => {
 
         <form
           className="form-info"
-          style={{ width: "800px", height: "457px", padding: "30px" , position: "relative"}}
+          style={{ height: "457px", padding: "30px" , position: "relative"}}
         >
           <div className="w-100 d-flex gap-3">
             <input type="text" placeholder="Your Name *" />

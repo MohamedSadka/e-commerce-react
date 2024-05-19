@@ -85,34 +85,34 @@ const Header = () => {
                 <Dropdown.Item>
                   <div className="d-flex gap-3">
                     <img width="30px" src="/images/user.webp" alt="user-pic" />
-                    <Link to="/forgot-password">Manage My Account</Link>
+                    <Link className="dropdown-item" to="/forgot-password">Manage My Account</Link>
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Item >
-                  <div className="d-flex gap-3">
-                    <img width="20px" height="20px" src="/images/order.png" alt="user-pic" />
-                    <Link to="/forgot-password">My Order</Link>
+                  <div className="d-flex gap-3 ml-2 align-items-center">
+                    <img width="30px" height="20px" src="/images/order.png" alt="order-pic" />
+                    <Link className="dropdown-item" to="/forgot-password">My Order</Link>
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Item >
                   {" "}
                   <div className="d-flex gap-3">
-                    <img width="30px" src="/images/cancelation.jpeg" alt="user-pic" />
-                    <Link to="/forgot-password">My Cancellations</Link>
+                    <img width="30px" src="/images/cancelation.jpeg" alt="cancellation-pic" />
+                    <Link className="dropdown-item" to="/forgot-password">My Cancellations</Link>
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Item >
                   {" "}
                   <div className="d-flex gap-3">
                     <img width="30px" src="/images/star-img.jpeg" alt="review-pic" />
-                    <Link to="/reviews">My Reviews</Link>
+                    <Link className="dropdown-item" to="/reviews">My Reviews</Link>
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Item >
                   {" "}
                   <div className="d-flex gap-3">
                     <img width="30px" src="/images/logout-img.jpg" alt="logout-pic" />
-                    <Link to="/checkout">Log Out</Link>
+                    <Link className="dropdown-item" to="/logout">Log Out</Link>
                   </div>
                 </Dropdown.Item>
               </Dropdown.Menu>

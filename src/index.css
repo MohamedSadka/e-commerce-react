@@ -607,7 +607,6 @@
 }
 
 .add-to-cart {
-  width: 96px;
   height: 34px;
   font-size: 16px;
   font-weight: 500;
@@ -723,11 +722,12 @@
 }
 
 .story-container {
-  width: 1200px;
+  /* width: 1200px; */
   align-items: center;
   gap: 50px;
   margin-bottom: 50px;
 }
+
 
 .about-story {
   width: 525px;
@@ -748,11 +748,22 @@
   background-color: #eb7ea8;
 }
 
+
 .about-stats {
-  width: 1100px;
   margin: 100px 0;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .story-container {
+    justify-content: center;
+  }
+  .about-sideImg {
+    display: none;
+  }
 }
 
 .stats-card {
@@ -763,12 +774,12 @@
 }
 
 .about-people {
-  width: 1100px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .person-card {
   width: 370px;
-  height: 564px;
 }
 
 .img-container {
@@ -788,10 +799,25 @@
 }
 
 .about-services {
-  width: 1100px;
   margin-top: 50px;
   margin-bottom: 90px;
   justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .about-services svg {
+    width: 700px
+  }
+}
+@media (max-width: 768px) {
+  .about-services svg {
+    width: 500px
+  }
+}
+@media (max-width: 500px) {
+  .about-services svg {
+    width: 340px
+  }
 }
 
 .page form input {
@@ -1027,5 +1053,11 @@
 /* dropdown menu */
 
 .dropdown-menu {
+  background-color: #00000054 !important;
   margin-left: -70px !important;
+  
+}
+
+.dropdown-item {
+  list-style: none;
 }
