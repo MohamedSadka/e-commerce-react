@@ -1,12 +1,13 @@
 // Cart.jsx
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { scrollToSection } from "../components/ScrollToSection";
 
-
 const Cart = () => {
-  const { cartItems,setCartItems, removeFromCart, updateQuantity } = useCart();
+  const { cartItems,  removeFromCart, updateQuantity } = useCart();
+  const [showDeleteButton, setShowDeleteButton] = useState(true);
+
   const navigate = useNavigate();
 
   const handleQuantityChange = (productId, quantity) => {
@@ -15,16 +16,17 @@ const Cart = () => {
 
   const handleReturnToShop = () => {
     navigate("/");
-    setTimeout(() => scrollToSection("products-section"), 100); 
+    setTimeout(() => scrollToSection("products-section"), 100);
   };
 
   const totalPrice = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
 
-  // useEffect (()=> {
-  //   const savedCartItems = JSON.parse()
-  // })
+  const handleUpdateCart = () => {
+    // setShowDeleteButton(!showDeleteButton);
+    setShowDeleteButton((prevShowDeleteButton) => !prevShowDeleteButton);
+  };
 
   return (
     <div className="cart-page align-center">
@@ -59,13 +61,28 @@ const Cart = () => {
             <div className="cart-item">
               <div>{item.price * item.quantity}$</div>
             </div>
-            {/* <button onClick={() => removeFromCart(item.id)}>Remove</button> */}
+            {showDeleteButton && (
+              <button
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  border: "none",
+                  backgroundColor: "#db4444",
+                  color: "white",
+                  borderRadius: "4px",
+                  padding: "4px"
+                }}
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
+            )}
           </li>
         ))}
       </ul>
       <div className="cart-buttons d-flex align-items-center justify-content-between mb-5">
         <button onClick={handleReturnToShop}>Return to shop</button>
-        <button>Update cart</button>
+        <button onClick={handleUpdateCart}>Update cart</button>
       </div>
       <div className="cart-details d-flex justify-content-between">
         <div className="details-btns d-flex gap-3">
@@ -86,7 +103,10 @@ const Cart = () => {
             <p>Total</p>
             <span>{totalPrice}$</span>
           </div>
-          <button className="checkout-btn" onClick={() => navigate("/checkout")}>
+          <button
+            className="checkout-btn"
+            onClick={() => navigate("/checkout")}
+          >
             Proceed to checkout
           </button>
         </div>
